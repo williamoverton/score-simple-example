@@ -1,0 +1,22 @@
+apiVersion: score.dev/v1b1
+
+metadata:
+  name: hello-world
+
+# Define the ports that this service exposes
+service:
+  ports:
+    www:
+      port: 80 # The port that the service will be exposed on
+      targetPort: 3000 # The port that the container will be listening on
+
+# Define the containers that make up this service
+containers:
+  frontend:
+    image: europe-west2-docker.pkg.dev/will-overton-gcp/demo/helloworld:latest
+
+# Define the resources that this service needs
+# In this case, we need a DNS record to point to the service 
+resources:
+  dns:
+    type: dns
