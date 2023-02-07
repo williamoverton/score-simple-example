@@ -1,5 +1,4 @@
 const http = require('http');
-const port = 3000;
 
 const requestHandler = (request, response) => {
   console.log(request.url);
@@ -21,6 +20,8 @@ const requestHandler = (request, response) => {
 }
 
 const server = http.createServer(requestHandler);
+
+const port = process.env.PORT || 8080;
 
 server.listen(port, (err) => {
   if (err) {
